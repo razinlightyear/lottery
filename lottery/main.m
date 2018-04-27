@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
         srandom((unsigned)time(NULL));
         NSMutableArray *array;
         array = [[NSMutableArray alloc] init];
-        
+        NSLog(@"first item = %@", [array objectAtIndex:0]);
         int i;
         for(i=0; i<10; i++)
         {
@@ -39,9 +39,13 @@ int main(int argc, const char * argv[]) {
                                                  toDate:now
                                                 options:0];
             
-            LotteryEntry *newEntry = [[LotteryEntry alloc] init];
-            [newEntry prepareRandomNumbers];
-            [newEntry setEntryDate:iWeeksFromNow];
+            //LotteryEntry *newEntry = [[LotteryEntry alloc] init];
+            //[newEntry prepareRandomNumbers];
+            //[newEntry setEntryDate:iWeeksFromNow];
+
+            //LotteryEntry *newEntry = [[LotteryEntry alloc] init];
+            
+            LotteryEntry *newEntry = [[LotteryEntry alloc] initWithEntryDate:iWeeksFromNow];
             
             [array addObject:newEntry];
         }

@@ -10,10 +10,28 @@
 
 @implementation LotteryEntry
 
--(void)prepareRandomNumbers
+-(id)init // was (void)prepareNumbers
 {
-    firstNumber = ((int)random() % 100)+1;
-    secondNumber = ((int)random() % 100)+1;
+//    self = [super init];
+//    if(self)
+//    {
+//        firstNumber = ((int)random() % 100)+1;
+//        secondNumber = ((int)random() % 100)+1;
+//    }
+//    return self;
+    return [self initWithEntryDate:[NSDate date]];
+}
+
+-(id)initWithEntryDate:(NSDate *)date;
+{
+    self = [super init];
+    if(self)
+    {
+        firstNumber = ((int)random() % 100)+1;
+        secondNumber = ((int)random() % 100)+1;
+        entryDate = date;
+    }
+    return self;
 }
 
 -(void)setEntryDate:(NSDate *)date
